@@ -7,7 +7,6 @@ pub fn kosaraju(graph: &[Vec<usize>]) -> Vec<Vec<usize>> {
     let mut components = Vec::new();
     let mut stack = Vec::new();
 
-    // first pass: get reverse post-order
     for i in 0..n {
         if !visited[i] {
             stack.push(i);
@@ -27,7 +26,6 @@ pub fn kosaraju(graph: &[Vec<usize>]) -> Vec<Vec<usize>> {
         }
     }
 
-    // second pass: get components
     visited = vec![false; n];
     while let Some(v) = order.pop_front() {
         if !visited[v] {
